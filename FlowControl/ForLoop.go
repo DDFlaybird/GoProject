@@ -1,4 +1,4 @@
-package FlowControl
+package flowcontrol
 
 import "fmt"
 
@@ -69,3 +69,5 @@ func TimesRangeExample(rangeNUmber, time int) (int, int) {
 	fmt.Printf("总和为:%d\n", sum)
 	return sum, num
 }
+
+// 

@@ -4,13 +4,12 @@ str主要用来解决类型不同类型转换的库。
 tips:
 fmt这个库也可以实现类型转换但是只是将各种类型转换成string。但是不能将string类型转换成别的格式。
 */
-package TypeCoversion
+package typecoversion
 
 import (
 	"fmt"
 	"strconv"
 )
-import _ "fmt"
 
 func StrCovert(inputInt string) int64 {
 	returnInt, _ := strconv.ParseInt(inputInt, 10, 64)

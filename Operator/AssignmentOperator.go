@@ -13,4 +13,4 @@
 	|= 按位或后赋值
 */
 
-package Operator
+package operator

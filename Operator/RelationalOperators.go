@@ -1,4 +1,4 @@
-package Operator
+package operator
 
 // 等于
 func Equal(x, y int) bool {

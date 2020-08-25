@@ -1,9 +1,9 @@
 package main
 
 import (
-	"GoProject/FlowControl"
-	"GoProject/Operator"
-	"GoProject/TypeCoversion"
+	"GoProject/flowcontrol"
+	"GoProject/operator"
+	"GoProject/typecoversion"
 	"fmt"
 )
 
@@ -14,19 +14,19 @@ func main() {
 	a := "100"
 	b := 10000000
 	// 类型转换
-	fmt.Println(TypeCoversion.StrCovert(a))
-	fmt.Println(TypeCoversion.FmtIntConvertExample(b))
+	fmt.Println(typecoversion.StrCovert(a))
+	fmt.Println(typecoversion.FmtIntConvertExample(b))
 	fmt.Println(bc % ac)
 	fmt.Println("***************TypeCoversion*****************")
 	// 操作符
-	Operator.BitwiseOperatorTestCase()
+	operator.BitwiseOperatorTestCase()
 	// 流程控制
 	fmt.Println("***************FLowControl*****************")
-	FlowControl.AnthorSimpleIfExample(22)
-	FlowControl.ElifSimpleExample(52)
+	flowcontrol.AnthorSimpleIfExample(22)
+	flowcontrol.ElifSimpleExample(52)
 	//FlowControl.ForSimpleExample()
-	FlowControl.EventNumberExample(22)
-	FlowControl.SumExample(12)
-	FlowControl.TimesRangeExample(100, 9)
+	flowcontrol.EventNumberExample(22)
+	flowcontrol.SumExample(12)
+	flowcontrol.TimesRangeExample(100, 9)
 	fmt.Println("***************FLowControl*****************")
 }

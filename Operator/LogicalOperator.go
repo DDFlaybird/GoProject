@@ -1,4 +1,4 @@
-package Operator
+package operator
 
 // && And 同时为True则为True，否则为False
 // || Or 有一个为True则为True，否则为False

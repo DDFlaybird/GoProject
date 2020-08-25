@@ -1,4 +1,4 @@
-package Operator
+package operator
 
 // 相加
 func Add(x, y int) int {
