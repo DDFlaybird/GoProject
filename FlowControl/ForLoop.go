@@ -9,6 +9,7 @@ import "fmt"
 	初始语句和结束语句都可以省略。
 */
 
+// ForSimpleExample 简单for循环解释
 func ForSimpleExample() {
 	fmt.Println("For")
 	for x := 2; x < 10; x++ {
@@ -16,7 +17,7 @@ func ForSimpleExample() {
 	}
 }
 
-// GO中的while
+// WhileSimpleExample GO中的while
 // 单独一个for关键字就是无限循环， 使用while内部一定有跳出语句
 func WhileSimpleExample() {
 	fmt.Println("While")
@@ -31,7 +32,7 @@ func WhileSimpleExample() {
 	}
 }
 
-// while语句的联系
+// EventNumberExample while语句的联系
 func EventNumberExample(rangeNumber int) []int {
 	fmt.Printf("输出在%d范围内的偶数\n", rangeNumber)
 	var eventNumber []int
@@ -44,7 +45,7 @@ func EventNumberExample(rangeNumber int) []int {
 	return eventNumber
 }
 
-// 递增求和
+// SumExample 递增求和
 func SumExample(rangeNUmber int) int {
 	var sum int = 0
 	for i := 0; i <= rangeNUmber; i++ {
@@ -54,7 +55,7 @@ func SumExample(rangeNUmber int) int {
 	return sum
 }
 
-// 打印1~100之间所有是9的倍数的个数及总和
+// TimesRangeExample 打印1~100之间所有是9的倍数的个数及总和
 func TimesRangeExample(rangeNUmber, time int) (int, int) {
 	var num int = 0
 	var sum int = 0
@@ -69,5 +70,3 @@ func TimesRangeExample(rangeNUmber, time int) (int, int) {
 	fmt.Printf("总和为:%d\n", sum)
 	return sum, num
 }
-
-// 

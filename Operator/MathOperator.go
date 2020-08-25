@@ -1,26 +1,26 @@
 package operator
 
-// 相加
+// Add 相加
 func Add(x, y int) int {
 	return x + y
 }
 
-// 相见
+// Minus 相减
 func Minus(x, y int) int {
 	return x - y
 }
 
-// 除以
+// Divided 除以
 func Divided(x, y int) int {
 	return x / y
 }
 
-// 乘法
+// Mul 乘法
 func Mul(x, y int) int {
 	return x * y
 }
 
-// 求余数
+// Remainder 求余数
 /*
 eg:
 	x = 3
@@ -37,14 +37,14 @@ func Remainder(x, y int) int {
 	return x % y
 }
 
-// 自增
+// AutoIncrement 自增
 // 自增是单独语句并不是运算符
 func AutoIncrement(x int) int {
 	x++
 	return x
 }
 
-// 自减
+// Decrementing 自减
 // 自减是单独语句并不是运算符
 func Decrementing(x int) int {
 	x--

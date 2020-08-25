@@ -5,8 +5,9 @@ package operator
 // ！ Not 值为True则为False， 值为False则为True
 
 var True_ bool = true
-var Fasle_ bool = false
+var False_ bool = false
 
+// And 解释And的作用
 func And(x, y bool) string {
 	if x && y {
 		return "AND"
@@ -15,14 +16,14 @@ func And(x, y bool) string {
 	}
 }
 
+// Or 解释or的运作
 func Or(x, y bool) string {
 	if x || y {
 		return "OR"
-	} else {
-		return ""
 	}
 }
 
+// Not 解释Not的运作
 func Not(x bool) string {
 	if !x {
 		return "Not"
