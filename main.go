@@ -3,7 +3,7 @@ package main
 import (
 	"GoProject/flowcontrol"
 	"GoProject/operator"
-	"GoProject/typecoversion"
+	"GoProject/typecoversions"
 	"fmt"
 )
 
@@ -14,8 +14,8 @@ func main() {
 	a := "100"
 	b := 10000000
 	// 类型转换
-	fmt.Println(typecoversion.StrCovert(a))
-	fmt.Println(typecoversion.FmtIntConvertExample(b))
+	fmt.Println(typecoversions.StrCovert(a))
+	fmt.Println(typecoversions.FmtIntConvertExample(b))
 	fmt.Println(bc % ac)
 	fmt.Println("***************typecoversion*****************")
 	// 操作符
@@ -30,5 +30,7 @@ func main() {
 	flowcontrol.TimesRangeExample(100, 9)
 	flowcontrol.FactorialExample(5)
 	flowcontrol.RectangleExample(10, 20)
+	flowcontrol.PrintTriangleExample(20, 10)
+	flowcontrol.MultiplicationTableExample(9)
 	fmt.Println("***************FLowControl*****************")
 }

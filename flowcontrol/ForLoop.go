@@ -108,3 +108,29 @@ func RectangleExample(length, height int) {
 	}
 	fmt.Println()
 }
+
+// PrintTriangleExample 打印三角形
+// 如果要打印成不是直角三角形的就要确定定点在底边什么位置
+// TODO 有空拓展成不是直角三角形的形状
+func PrintTriangleExample(lowlength, height int) {
+	var start int = 1
+	for i := 0; i < height; i++ {
+		if start < lowlength {
+			for i := 0; i < start; i++ {
+				fmt.Print("*")
+			}
+			fmt.Println()
+			start++
+		}
+	}
+}
+
+// MultiplicationTableExample 输出乘法表
+func MultiplicationTableExample(row int) {
+	for i := 1; i <= row; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Printf("%d*%d=%v \t", i, j, i*j)
+		}
+		fmt.Println()
+	}
+}
