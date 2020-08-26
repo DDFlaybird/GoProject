@@ -6,9 +6,8 @@ import "fmt"
 func SimpleIfExample(flag bool) bool {
 	if flag {
 		return true
-	} else {
-		return false
 	}
+	return false
 }
 
 // AnthorSimpleIfExample 直接再if语句中声明一个新的变量并进行比较
