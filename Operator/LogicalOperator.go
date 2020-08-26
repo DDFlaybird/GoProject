@@ -21,6 +21,7 @@ func Or(x, y bool) string {
 	if x || y {
 		return "OR"
 	}
+	return ""
 }
 
 // Not 解释Not的运作
