@@ -1,6 +1,9 @@
 package flowcontrol
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 /*
 	for 初始语句；条件表达式； 结束语句{
@@ -62,11 +65,46 @@ func TimesRangeExample(rangeNUmber, time int) (int, int) {
 	for i := 0; i <= rangeNUmber; i++ {
 		if i%time == 0 {
 			fmt.Println(i)
-			num ++
+			num++
 			sum += i
 		}
 	}
 	fmt.Printf("在%d范围之内有%d个%d的倍数\n", rangeNUmber, num, time)
 	fmt.Printf("总和为:%d\n", sum)
 	return sum, num
+}
+
+// FactorialExample 根据输入的参数获得阶乘结果
+func FactorialExample(rangeInt int) int {
+	var sum int = 1
+	for i := 1; i <= rangeInt; i++ {
+		sum *= i
+	}
+	fmt.Printf("阶乘%d次的结果为：%d\n", rangeInt, sum)
+	return sum
+}
+
+// RectangleExample 打印一个矩形
+func RectangleExample(length, height int) {
+	for i := 0; i < height; i++ {
+		if i == 0 || i == (height-1) {
+			for i := 0; i < length; i++ {
+				time.Sleep(time.Duration(10) * time.Millisecond)
+				fmt.Print("*")
+			}
+			fmt.Println()
+		} else {
+			for i := 0; i < length; i++ {
+				if i == 0 || i == (length-1) {
+					time.Sleep(time.Duration(10) * time.Millisecond)
+					fmt.Print("*")
+				} else {
+					time.Sleep(time.Duration(10) * time.Millisecond)
+					fmt.Print(" ")
+				}
+			}
+			fmt.Println()
+		}
+	}
+	fmt.Println()
 }

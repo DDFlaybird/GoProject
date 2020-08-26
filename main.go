@@ -24,9 +24,11 @@ func main() {
 	fmt.Println("***************FLowControl*****************")
 	flowcontrol.AnthorSimpleIfExample(22)
 	flowcontrol.ElifSimpleExample(52)
-	//flowcontrol.ForSimpleExample()
+	flowcontrol.ForSimpleExample()
 	flowcontrol.EventNumberExample(22)
 	flowcontrol.SumExample(12)
 	flowcontrol.TimesRangeExample(100, 9)
+	flowcontrol.FactorialExample(5)
+	flowcontrol.RectangleExample(10, 20)
 	fmt.Println("***************FLowControl*****************")
 }
