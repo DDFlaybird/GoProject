@@ -62,7 +62,7 @@ func TimesRangeExample(rangeNUmber, time int) (int, int) {
 	for i := 0; i <= rangeNUmber; i++ {
 		if i%time == 0 {
 			fmt.Println(i)
-			num += 1
+			num ++
 			sum += i
 		}
 	}
