@@ -18,8 +18,10 @@ func main() {
 	fmt.Println(typecoversions.FmtIntConvertExample(b))
 	fmt.Println(bc % ac)
 	fmt.Println("***************typecoversion*****************")
+
 	// 操作符
 	operator.BitwiseOperatorTestCase()
+
 	// 流程控制
 	fmt.Println("***************FLowControl*****************")
 	flowcontrol.AnthorSimpleIfExample(22)
@@ -32,5 +34,9 @@ func main() {
 	flowcontrol.RectangleExample(10, 20)
 	flowcontrol.PrintTriangleExample(20, 10)
 	flowcontrol.MultiplicationTableExample(9)
+	flowcontrol.SwitchExample("E")
+	flowcontrol.SwitchCaseExampleB()
+	flowcontrol.SwitchCaseExampleC(60)
 	fmt.Println("***************FLowControl*****************")
+
 }
