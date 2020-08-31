@@ -1,3 +1,1 @@
 package datastructure
-
-import "fmt"

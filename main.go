@@ -49,5 +49,7 @@ func main() {
 	datastructure.ArraySumAndAverage(arraySample)
 	datastructure.FindSumAndIndex(findsumandindex, 8)
 	datastructure.MaxAndMinIntInArray(findsumandindex)
+	datastructure.ValueType()
+	datastructure.MultidimensionalArray()
 	fmt.Println("***************DataStructure*****************")
 }
