@@ -49,5 +49,34 @@ func ArraySumAndAverage(array [12]int) (int, float64) {
 	return num, average
 }
 
+// FindSumAndIndex 从数组中找到和为指定数的两个元素的值以及他们在数组中的位置。
+// TODO 算法待优化
+func FindSumAndIndex(array []int, result int) []map[string][]int {
+	var indexAndresult []map[string][]int
+	for i := 0; i < len(array); i++ {
+		for j := 0; j < len(array); j++ {
+			if (array[i] + array[j]) == result {
+				indexs := map[string][]int{"element": []int{array[i], array[j]}, "index": []int{i, j}}
+				indexAndresult = append(indexAndresult, indexs)
+			}
+		}
+	}
+	fmt.Println(indexAndresult)
+	return indexAndresult
+}
 
-// 
+// MaxAndMinIntInArray 求数组中最大值
+func MaxAndMinIntInArray(arrays []int) (int, int) {
+	var min = arrays[0]
+	var max = arrays[0]
+	for _, v := range arrays {
+		if v > max {
+			max = v
+		}
+		if v < min {
+			min = v
+		}
+	}
+	fmt.Printf("最大值：%d, 最小值：%d\n", max, min)
+	return max, min
+}
