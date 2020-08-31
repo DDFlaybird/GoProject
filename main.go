@@ -45,7 +45,9 @@ func main() {
 	// datastructure.RangeWithArray()
 	// datastructure.ForWithArray()
 	var arraySample = [...]int{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+	var findsumandindex = []int{1, 2, 3, 4, 5}
 	datastructure.ArraySumAndAverage(arraySample)
+	datastructure.FindSumAndIndex(findsumandindex, 8)
+	datastructure.MaxAndMinIntInArray(findsumandindex)
 	fmt.Println("***************DataStructure*****************")
-
 }
