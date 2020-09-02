@@ -109,3 +109,77 @@ func MultidimensionalArray() {
 	fmt.Println(marray)
 	fmt.Printf("多维数组的取值；如果我们想拿到数组中第二个数组的第2个值，那么我们可以这么写marry[1][1]: %v\n", marray[1][1])
 }
+
+/*切片*/
+
+/*
+	初始化切片的两种方式：
+		1、var a []int
+		2、a := make([]int, 2, 5) ; make函数的详解 make([]type, len, cap) []type 切片中元素内容，len长度，cap容量
+	切片的初始化：
+		a = []int{1, 2, 3, 4}
+		a = append(a, 1); append2倍扩容
+	未初始化的切片是nil 和数组不同；数组中如[2]string 如果没有初始化那么数组中是""，其他类型的数组就是对应类型的初始值
+	切片的长度和容量：
+	长度：切片的长度就是他包含的个数
+	容量：切片的容量是从他的第一个元素开始数，到其底层数组元素末尾的个数
+	容量例子：
+		a := []int{1, 2, 3, 4, 5, 6, 6}
+		a[1:] // [2， 3， 4， 5， 6， 6] 这个长度就是6, 容量也是6
+		a[1:4] // [2, 3, 4] 这个长度是3，容量是6 为啥呢？ 重点就是这句话 ”到其底层数组元素的个数“ 也就是说他的容量就是2 - 6 之间的容量
+*/
+
+// CapOfSlice 解释容量
+func CapOfSlice() {
+	a := []int{1, 2, 3, 4, 5, 6}
+	fmt.Printf("切片：%v, 长度：%d, 容量：%d\n", a, len(a), cap(a))
+	sliceA := a[1:4]
+	fmt.Printf("定义一个数组的切片：%v, 长度：%d, 容量：%d\n", sliceA, len(sliceA), cap(sliceA))
+	fmt.Println("这个时候cap和长度并不相等。那么为啥呢？记住cap的定义：“切片的容量是从他的第一个元素开始数，到其底层数组元素末尾的个数”，所以容量是从2开始数到元素组的末尾元素也就是6结束")
+}
+
+// AppendInSlice append函数在切片中的使用
+// append 可以给切片扩容
+// append 可以给切片添加多个值
+// append 可以合并切片
+/*
+切片的扩容策略：
+			当需要的容量超过原切片容量的两倍时，会使用需要的容量作为新容量；
+			当原切片长度小于1024时，新切片的容量会直接翻倍。而当原切片的容量大于等于1024时，会反复地增加25%，直到新容量超过所需要的容量。
+*/
+func AppendInSlice() {
+	var language []string
+	language = append(language, "Go")
+	// append 可以给切片进行扩容
+	fmt.Printf("切片：%v, 长度：%d, 容量：%d\n", language, len(language), cap(language))
+	language = append(language, "Python")
+	fmt.Printf("切片：%v, 长度：%d, 容量：%d\n", language, len(language), cap(language))
+	var languageA []string
+	// 使用append合并切片
+	languageA = append(languageA, "Perl", "JavaScript")
+	language = append(language, languageA...)
+	fmt.Println(language)
+}
+
+// CopyInSlice copy
+func CopyInSlice() {
+	// copy的时候要使用make并且指明容量和长度
+	sliceB := make([]int, 2, 16)
+	sliceA := []int{1, 2, 3, 4}
+	copy(sliceB, sliceA)
+	fmt.Println(sliceB)
+}
+
+// DeleteInSlice 删除
+// slice中没有删除的接口所以只能通过append合并数组的方式删除切片中的元素
+func DeleteInSlice() {
+	slices := []int{1, 2, 3, 4, 5, 6}
+	slices = append(slices[0:1], slices[2:]...)
+	fmt.Println(slices)
+	// append 只能应用在slice中
+	// 所以我们通过引用传递的机制 对数组切片然后再对切片appen删除需要 删除的数据，但是由于数组的底层原理，我们删除元素后数组的长度不会改变，所以他会给我们补位一个元素。
+	arrays := [6]int{1, 2, 3, 4, 5, 6}
+	sliceB := arrays[0:]
+	sliceB = append(sliceB[0:1], sliceB[2:]...)
+	fmt.Println(arrays)
+}

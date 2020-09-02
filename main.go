@@ -51,5 +51,16 @@ func main() {
 	datastructure.MaxAndMinIntInArray(findsumandindex)
 	datastructure.ValueType()
 	datastructure.MultidimensionalArray()
+	datastructure.CapOfSlice()
+	datastructure.AppendInSlice()
+	datastructure.CopyInSlice()
+	datastructure.DeleteInSlice()
+	datastructure.ForRangeInMap()
+	datastructure.CURDInMap()
+	datastructure.IntoMap()
 	fmt.Println("***************DataStructure*****************")
+	fmt.Println()
+	fmt.Println("***************FunctionInGo*****************")
+	
+	fmt.Println("***************FunctionInGo*****************")
 }
