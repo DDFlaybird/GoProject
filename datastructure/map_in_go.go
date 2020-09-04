@@ -110,3 +110,21 @@ func IntoMap() {
 		fmt.Printf("Key:%d, value:%d\n", v, mapsort[v])
 	}
 }
+
+// SortMap 排序map
+func SortMap(eachMap map[int]int) (returnmap map[int]int) {
+	var slices []int
+	fmt.Println(eachMap)
+	for k := range eachMap {
+		slices = append(slices, k)
+	}
+	sort.Ints(slices)
+	returnmap = make(map[int]int)
+	for _, v := range slices {
+		returnmap[v] = eachMap[v]
+	}
+	// 输出的时候会自动排序但是实际上map内部还是无序的。
+	fmt.Println(eachMap)
+	fmt.Println(returnmap)
+	return returnmap
+}
