@@ -182,6 +182,16 @@ func FuncCloser() {
 
 // defer
 
+/*
+1、多个defer的执行顺序是“后进先出”
+2、所有函数在执行return返回指令之前，都会先检查是否存在defer语句，若存在则先逆序调用defer语句进行收尾工作再退出返回；
+3、匿名返回值是在return执行时被声明，有名返回值则是在函数声明的同时被声明，因此在defer语句中只能访问有名返回值，而不能直接访问匿名返回值；
+4、return其实应该包含前后两个步骤：第一步是给返回值赋值（若为有名返回值则直接赋值，若为匿名返回值则先声明再赋值）；
+第二步是调用RET返回指令并传入返回值，而RET则会检查defer是否存在，若存在就先逆序插播defer语句，最后RET携带返回值退出函数；
+
+为啥有名返回defer语句后的修改能够修改值，而匿名返回不能返回
+*/
+
 // DeferExample 展示defer用法
 func DeferExample() {
 	fmt.Println("defer 会将后面跟随的语句延迟执行，多个defer语句按照FILO先进后出的顺序执行")
@@ -202,4 +212,53 @@ func LambdaReturn() {
 		fmt.Println("bbbb")
 	}()
 	fmt.Println("结束")
+}
+
+// A 匿名返回值
+func A() int {
+	var i int
+	defer func() {
+		i++
+		fmt.Println("a defer2:", i) // 打印结果为 a defer2: 2
+	}()
+	defer func() {
+		i++
+		fmt.Println("a defer1:", i) // 打印结果为 a defer1: 1
+	}()
+	return i
+}
+
+// B 有名返回值
+func B() (i int) {
+	defer func() {
+		i++
+		fmt.Println("b defer2:", i) // 打印结果为 b defer2: 2
+	}()
+	defer func() {
+		i++
+		fmt.Println("b defer1:", i) // 打印结果为 b defer1: 1
+	}()
+	return i // 或者直接 return 效果相同
+}
+
+// C 
+func C() *int {
+	var i int
+	defer func() {
+		i++
+		fmt.Println("c defer2:", i, &i) // 打印结果为 c defer2: 2 0xc082008340
+	}()
+	defer func() {
+		i++
+		fmt.Println("c defer1:", i, &i) // 打印结果为 c defer1: 1 0xc082008340
+	}()
+	return &i
+}
+
+// DeferFunc 有名返回值
+func DeferFunc(i int) (t int) {
+	defer func() {
+		t += 5
+	}()
+	return 2
 }
