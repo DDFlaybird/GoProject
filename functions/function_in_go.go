@@ -241,8 +241,8 @@ func B() (i int) {
 	return i // 或者直接 return 效果相同
 }
 
-// C 
-func C() *int {
+// C
+func C() int {
 	var i int
 	defer func() {
 		i++
@@ -252,7 +252,21 @@ func C() *int {
 		i++
 		fmt.Println("c defer1:", i, &i) // 打印结果为 c defer1: 1 0xc082008340
 	}()
-	return &i
+	return i
+}
+
+// D 有名返回值
+func D() (i int) {
+	fmt.Println(&i)
+	defer func() {
+		i++
+		fmt.Println("d defer2:", i, &i) // 打印结果为 c defer2: 2 0xc082008340
+	}()
+	defer func() {
+		i++
+		fmt.Println("d defer1:", i, &i) // 打印结果为 c defer1: 1 0xc082008340
+	}()
+	return i
 }
 
 // DeferFunc 有名返回值

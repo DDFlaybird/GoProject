@@ -84,9 +84,11 @@ func main() {
 	functions.DeferExample()
 	functions.LambdaReturn()
 	c := functions.C()
+	d := functions.D()
 	fmt.Println("A return:", functions.A()) // 打印结果为 A return: 0
 	fmt.Println("B return:", functions.B()) // 打印结果为 A return: 0
-	fmt.Println("c return:", *c, c)       // 打印结果为 c return: 2 0xc082008340
+	fmt.Println("c return:", c, c)          // 打印结果为 c return: 2 0xc082008340
+	fmt.Println("d return:", d, &d)         // 打印结果为 c return: 2 0xc082008340
 	fmt.Println(functions.DeferFunc(1))
 	fmt.Println("***************Functions*****************")
 }
