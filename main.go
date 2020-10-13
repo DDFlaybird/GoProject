@@ -9,6 +9,26 @@ import (
 func test(strings string) string {
 	return strings + "test"
 }
+func fl() (r int) {
+	defer func() {
+		r++
+	}()
+	return 0
+}
+func f2() (r int) {
+	t := 5
+	defer func() {
+		t = t + 5
+	}()
+	return t
+}
+func f3() (r int) {
+	defer func(y int) {
+		y = y + 5
+		fmt.Println("d:", y)
+	}(r)
+	return 1
+}
 
 func main() {
 	fmt.Println("***************typecoversion*****************")
@@ -65,6 +85,15 @@ func main() {
 	datastructure.CURDInMap()
 	datastructure.IntoMap()
 	datastructure.SortMap(mapExample)
+	datastructure.CustomType()
+	datastructure.StructInit()
+	taskOne := datastructure.Task{
+		TotalTask:     22,
+		TotalWorkTime: 7.5,
+	}
+	taskOne.ShowTotalTask()
+	var intmy datastructure.MyInt = 22
+	intmy.ShowInfo()
 	fmt.Println("***************DataStructure*****************")
 	fmt.Println()
 	fmt.Println("***************Functions*****************")
@@ -91,4 +120,11 @@ func main() {
 	fmt.Println("d return:", d, &d)         // 打印结果为 c return: 2 0xc082008340
 	fmt.Println(functions.DeferFunc(1))
 	fmt.Println("***************Functions*****************")
+	fmt.Println("***************main*****************")
+	// 注意这里f1等函数是main。go文件内的函数，而FN函数是function包中的但是f1却和FN用一个逻辑
+	// 即后进先出四个函数被压入一个栈中了
+	println("fl=", fl()) //fl=l
+	println("f2=", f2()) //£2=5
+	println("f3=", f3()) // f3 =1
+	fmt.Println(functions.FN())
 }

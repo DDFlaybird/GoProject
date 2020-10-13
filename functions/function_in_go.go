@@ -276,3 +276,12 @@ func DeferFunc(i int) (t int) {
 	}()
 	return 2
 }
+
+func FN() int {
+	a := 0
+	defer func(i int) {
+		fmt.Println("i", i)
+	}(a)
+	a++
+	return a
+}
